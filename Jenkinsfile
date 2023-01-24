@@ -36,7 +36,7 @@ pipeline {
         }
         stage('4-Celebrate') {
             steps {
-                curl -s -X POST https://api.telegram.org/bot${TOKENID}/sendMessage -d chat_id=${ID} -d text="your message"
+                sh 'curl -s -X POST https://api.telegram.org/bot${TOKENID}/sendMessage -d chat_id=${ID} -d text="your message"'
             }
         }	
     }
