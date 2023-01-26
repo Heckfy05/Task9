@@ -40,7 +40,7 @@ pipeline {
         
                   telegramSend '*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *Build* : OK *Published* = YES'
         
-                }
+        }
          
                 aborted {
          
