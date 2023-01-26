@@ -34,10 +34,25 @@ pipeline {
                 echo "End of Stage Build..."
             }
         }
-        stage('4-Celebrate') {
+        stage('4-Resoult') {
             steps {
-                telegramSend '${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}'
-            }
+                success { 
+        
+                  telegramSend '*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *Build* : OK *Published* = YES'
+        
+                }
+         
+                aborted {
+         
+                  telegramSend '*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *Build* : `Aborted` *Published* = `Aborted`'
+        }
+     
+     
+                failure {
+        
+            telegramSend '*${env.JOB_NAME}* : POC  *Branch*: ${env.GIT_BRANCH} *Build* : `not OK` *Published* = `no`'
+        }
+            
         }	
     }
 }
