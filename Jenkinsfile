@@ -23,6 +23,9 @@ pipeline {
             }
         }
         stage('3-Deploy') {
+            when {
+                branch 'main'
+            }
             steps {
                 echo "Start of Stage Deploy..."
                 echo "Deploying......."
