@@ -36,7 +36,7 @@ pipeline {
         }
         stage('4-Resoult') {
             steps {
-                  telegramSend '*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *Build* : OK *Published* = YES'
+                  telegramSend 'Deploy succesfull'
                 }         
             }
         }
