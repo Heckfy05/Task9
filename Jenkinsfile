@@ -40,17 +40,7 @@ pipeline {
         
                   telegramSend '*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *Build* : OK *Published* = YES'
         
-                }
-         
-                aborted {
-         
-                  telegramSend '*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *Build* : `Aborted` *Published* = `Aborted`'
-                }
-     
-                failure {
-        
-                  telegramSend '*${env.JOB_NAME}* : POC  *Branch*: ${env.GIT_BRANCH} *Build* : `not OK` *Published* = `no`'
-                }           
+                }         
             }
         }
     }
